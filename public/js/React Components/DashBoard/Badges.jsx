@@ -8,7 +8,6 @@ export default class Badges extends Component {
     super();
     this.state = {
       badges: '',
-      n: '',
     };
   }
 
@@ -24,8 +23,7 @@ export default class Badges extends Component {
         },
       }).then(({ data: games }) => {
         this.setState({
-          badges: games.length * 4,
-          n: this.state.badges > 3 ? 2 : 1,
+          badges: games.length,
         });
       });
     });
@@ -61,7 +59,7 @@ export default class Badges extends Component {
         <div className="ListTitle">
           <h1> Your Badges </h1>
         </div>
-        <h3>Your points : {this.state.badges}</h3>
+        <h3>Your points : {this.state.badges * 4}</h3>
         <h5>{avatarList}</h5>
       </div>
     );
